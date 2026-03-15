@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Styled Todo</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <main class="app" aria-labelledby="app-title">
+      <section class="card">
+        <header class="card__header">
+          <p class="badge">TODAY'S FOCUS</p>
+          <h1 id="app-title">Todo List</h1>
+          <p class="subtitle">심플하지만 인터랙션은 강력하게.</p>
+        </header>
+
+        <form id="todo-form" class="todo-form" autocomplete="off">
+          <label for="todo-input" class="sr-only">새로운 할 일</label>
+          <input
+            id="todo-input"
+            name="todo"
+            type="text"
+            maxlength="80"
+            placeholder="새로운 할 일을 입력하세요"
+            required
+          />
+          <button type="submit">추가</button>
+        </form>
+
+        <section class="status" aria-live="polite">
+          <p id="todo-count">총 0개 · 완료 0개</p>
+          <div class="toolbar" id="toolbar" role="toolbar" aria-label="할 일 필터">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true">전체</button>
+            <button type="button" class="chip" data-filter="active" aria-pressed="false">진행중</button>
+            <button type="button" class="chip" data-filter="completed" aria-pressed="false">완료</button>
+            <button type="button" class="chip chip--danger" id="clear-completed">완료 삭제</button>
+          </div>
+        </section>
+
+        <p id="announcer" class="sr-only" aria-live="polite"></p>
+        <ul id="todo-list" class="todo-list"></ul>
+
+        <footer class="summary" id="summary">
+          <p><strong id="active-count">0</strong>개의 할 일이 남아있습니다.</p>
+        </footer>
+      </section>
+    </main>
+
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
